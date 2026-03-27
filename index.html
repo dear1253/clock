@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        /* ตั้งค่าให้พื้นหลังโปร่งใสทั้งหมด */
+        body, html {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: transparent; /* โปร่งใส */
+            overflow: hidden;
+        }
+        
+        #clock {
+            color: #0018FF; /* สีน้ำเงินหลักของคุณ */
+            font-family: 'Inter', sans-serif;
+            font-size: 60px; /* ปรับขนาดตามต้องการ */
+            font-weight: 900;
+            letter-spacing: -2px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* เพิ่มมิติเล็กน้อย */
+        }
+    </style>
+</head>
+<body>
+    <div id="clock">00:00:00</div>
+
+    <script>
+        function updateTime() {
+            const now = new Date();
+            const timeString = now.toLocaleTimeString('th-TH', { 
+                hour12: false, 
+                hour: '2-digit', 
+                minute: '2-digit', 
+                second: '2-digit' 
+            });
+            document.getElementById('clock').innerText = timeString;
+        }
+        setInterval(updateTime, 1000);
+        updateTime();
+    </script>
+</body>
+</html>
